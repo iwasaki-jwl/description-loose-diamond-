@@ -1,0 +1,1495 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+
+  background: #f8f6f1;
+  color: #191919;
+
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
+
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+  --black: #171717;
+  --dark: #222222;
+
+  --gold: #b29863;
+  --gold-light: #d7c497;
+
+  --cream: #f8f6f1;
+  --white: #ffffff;
+
+  --gray: #777777;
+  --border: #dfdbd1;
+}
+
+
+/* =========================================
+   COMMON
+========================================= */
+
+.container {
+  width: min(1180px, 88%);
+  margin: 0 auto;
+}
+
+.section-label {
+  color: var(--gold);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 16px;
+
+  letter-spacing: 0.28em;
+
+  margin-bottom: 15px;
+}
+
+.gold-line {
+  width: 45px;
+  height: 1px;
+
+  margin: 25px auto;
+
+  background: var(--gold);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 90px;
+
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #fff;
+
+  z-index: 100;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 27px;
+
+  line-height: 1;
+
+  letter-spacing: 0.15em;
+}
+
+.logo span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--gold-light);
+
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.32em;
+}
+
+
+/* =========================================
+   DESKTOP NAV
+========================================= */
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation a {
+  position: relative;
+
+  margin-left: 35px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+}
+
+.navigation a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--gold-light);
+
+  transition: width 0.3s ease;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-toggle {
+  display: none;
+
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 110;
+}
+
+.menu-toggle span {
+  position: absolute;
+
+  left: 7px;
+
+  width: 28px;
+  height: 1px;
+
+  background: #fff;
+
+  transition:
+    transform 0.3s ease,
+    top 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.menu-toggle span:nth-child(1) {
+  top: 13px;
+}
+
+.menu-toggle span:nth-child(2) {
+  top: 20px;
+}
+
+.menu-toggle span:nth-child(3) {
+  top: 27px;
+}
+
+
+/* OPEN */
+
+.menu-toggle.active span:nth-child(1) {
+  top: 20px;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  top: 20px;
+  transform: rotate(-45deg);
+}
+
+
+/* =========================================
+   MOBILE NAV
+========================================= */
+
+.mobile-navigation {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  padding-top: 130px;
+
+  background:
+    rgba(18, 18, 18, 0.98);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transform: translateY(-15px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
+
+  z-index: 90;
+}
+
+.mobile-navigation.active {
+  visibility: visible;
+
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.mobile-navigation a {
+  margin: 18px 0;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 27px;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 720px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  color: #fff;
+
+  background:
+    #222 url("./images/pear.jpg")
+    center / cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 10, 10, 0.94) 0%,
+      rgba(10, 10, 10, 0.78) 38%,
+      rgba(10, 10, 10, 0.30) 100%
+    );
+}
+
+.hero-content {
+  position: relative;
+
+  width: min(1180px, 88%);
+
+  margin: 0 auto;
+
+  padding-top: 70px;
+}
+
+.hero-label {
+  margin-bottom: 28px;
+
+  color: var(--gold-light);
+
+  font-size: 11px;
+
+  letter-spacing: 0.4em;
+}
+
+.hero h1 {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-weight: 400;
+
+  font-size: clamp(65px, 9vw, 120px);
+
+  line-height: 0.8;
+
+  letter-spacing: 0.02em;
+}
+
+.hero h1 span {
+  display: block;
+
+  margin-top: 30px;
+
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
+
+  font-size: clamp(20px, 3vw, 31px);
+
+  font-weight: 300;
+
+  letter-spacing: 0.25em;
+}
+
+.hero-text {
+  margin-top: 45px;
+
+  color: #eee;
+
+  font-size: 13px;
+
+  line-height: 2.3;
+}
+
+.hero-button {
+  display: inline-block;
+
+  margin-top: 35px;
+
+  padding: 13px 30px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.5);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  letter-spacing: 0.2em;
+
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+
+.hero-button:hover {
+  background: var(--gold);
+
+  border-color: var(--gold);
+}
+
+.hero-scroll {
+  position: absolute;
+
+  left: 6%;
+  bottom: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  color: #ccc;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 12px;
+
+  letter-spacing: 0.15em;
+}
+
+.hero-scroll i {
+  display: block;
+
+  width: 55px;
+  height: 1px;
+
+  background: var(--gold);
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+  padding: 115px 0 70px;
+
+  text-align: center;
+}
+
+.intro h2 {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: clamp(36px, 5vw, 50px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.05em;
+}
+
+.intro-text {
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  color: var(--gray);
+
+  font-size: 13px;
+
+  line-height: 2.5;
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+.filter-section {
+  padding-bottom: 55px;
+}
+
+.filter-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  min-width: 120px;
+
+  padding: 10px 24px;
+
+  border: 1px solid #c9c4b8;
+
+  background: transparent;
+
+  color: #555;
+
+  cursor: pointer;
+
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.15em;
+
+  transition:
+    color 0.3s,
+    background 0.3s,
+    border-color 0.3s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background: var(--black);
+
+  border-color: var(--black);
+
+  color: #fff;
+}
+
+
+/* =========================================
+   COLLECTION
+========================================= */
+
+.collection {
+  padding-bottom: 130px;
+}
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 30px;
+}
+
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.product-card {
+  overflow: hidden;
+
+  background: #fff;
+
+  border: 1px solid var(--border);
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+.product-image {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  background: #eeeeee;
+}
+
+.product-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transition:
+    transform 0.8s ease;
+}
+
+.product-card:hover
+.product-image img {
+  transform: scale(1.06);
+}
+
+.shape-tag {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
+  padding: 5px 13px;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  color: #444;
+
+  font-size: 9px;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* =========================================
+   PRODUCT CONTENT
+========================================= */
+
+.product-content {
+  padding: 28px 28px 32px;
+}
+
+.product-number {
+  margin-bottom: 3px;
+
+  color: var(--gold);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 15px;
+
+  letter-spacing: 0.1em;
+}
+
+.product-name {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 31px;
+
+  font-weight: 400;
+
+  line-height: 1.1;
+
+  letter-spacing: 0.03em;
+}
+
+.product-name-jp {
+  margin-top: 4px;
+
+  color: var(--gray);
+
+  font-size: 11px;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================
+   SPEC
+========================================= */
+
+.spec-list {
+  margin-top: 23px;
+
+  border-top: 1px solid var(--border);
+}
+
+.spec-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid var(--border);
+
+  color: #888;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+}
+
+.spec-row strong {
+  color: #222;
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.03em;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.product-price {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.product-price span {
+  color: var(--gray);
+
+  font-size: 9px;
+
+  letter-spacing: 0.15em;
+}
+
+.product-price strong {
+  color: var(--black);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 29px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.02em;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   TOTAL
+========================================= */
+
+.total-section {
+  padding: 110px 0;
+
+  background: var(--black);
+
+  color: #fff;
+
+  text-align: center;
+}
+
+.total-section h2 {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: clamp(38px, 5vw, 52px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.05em;
+}
+
+.total-caption {
+  color: #aaa;
+
+  font-size: 12px;
+
+  letter-spacing: 0.1em;
+}
+
+.total-price {
+  margin-top: 12px;
+
+  color: var(--gold-light);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: clamp(48px, 7vw, 78px);
+
+  letter-spacing: 0.03em;
+}
+
+.total-note {
+  margin-top: 20px;
+
+  color: #888;
+
+  font-size: 10px;
+
+  line-height: 2;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about {
+  padding: 120px 0;
+
+  text-align: center;
+}
+
+.about h2 {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: clamp(36px, 5vw, 52px);
+
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.05em;
+}
+
+.about-text {
+  max-width: 700px;
+
+  margin: 0 auto 25px;
+
+  color: var(--gray);
+
+  font-size: 13px;
+
+  line-height: 2.5;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+  padding: 90px 0;
+
+  background: #eeece6;
+
+  text-align: center;
+}
+
+.contact h2 {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 45px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.05em;
+}
+
+.contact p:not(.section-label) {
+  margin-top: 20px;
+
+  color: var(--gray);
+
+  font-size: 13px;
+
+  line-height: 2.3;
+}
+
+.contact-button {
+  display: inline-block;
+
+  margin-top: 30px;
+
+  padding: 13px 40px;
+
+  background: var(--black);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  letter-spacing: 0.2em;
+
+  transition:
+    background 0.3s;
+}
+
+.contact-button:hover {
+  background: var(--gold);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  padding: 40px 20px;
+
+  background: #111;
+
+  color: #777;
+
+  text-align: center;
+}
+
+.footer-logo {
+  color: #fff;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 23px;
+
+  letter-spacing: 0.15em;
+}
+
+.site-footer p {
+  margin-top: 5px;
+
+  color: var(--gold);
+
+  font-size: 8px;
+
+  letter-spacing: 0.3em;
+}
+
+.site-footer small {
+  display: block;
+
+  margin-top: 20px;
+
+  color: #555;
+
+  font-size: 8px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================
+   TABLET
+   769px - 1199px
+========================================= */
+
+@media (max-width: 1199px) {
+
+  .container {
+    width: 90%;
+  }
+
+  .site-header {
+    padding: 0 5%;
+  }
+
+  .hero-content {
+    width: 90%;
+  }
+
+  .product-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+  }
+
+  .product-content {
+    padding: 25px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+   768px以下
+========================================= */
+
+@media (max-width: 768px) {
+
+  .container {
+    width: 90%;
+  }
+
+
+  /* HEADER */
+
+  .site-header {
+    height: 72px;
+
+    padding: 0 5%;
+
+    background:
+      rgba(10, 10, 10, 0.15);
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .logo span {
+    font-size: 7px;
+
+    letter-spacing: 0.25em;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 680px;
+
+    background-position:
+      60% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(10, 10, 10, 0.92),
+        rgba(10, 10, 10, 0.52)
+      );
+  }
+
+  .hero-content {
+    width: 90%;
+
+    padding-top: 40px;
+  }
+
+  .hero-label {
+    margin-bottom: 22px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.28em;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(58px, 16vw, 82px);
+
+    line-height: 0.85;
+  }
+
+  .hero h1 span {
+    margin-top: 23px;
+
+    font-size:
+      clamp(17px, 5vw, 23px);
+
+    letter-spacing: 0.13em;
+  }
+
+  .hero-text {
+    margin-top: 35px;
+
+    font-size: 11px;
+
+    line-height: 2.2;
+  }
+
+  .hero-button {
+    margin-top: 28px;
+
+    padding: 12px 25px;
+
+    font-size: 9px;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+
+  /* INTRO */
+
+  .intro {
+    padding: 80px 0 55px;
+  }
+
+  .section-label {
+    font-size: 14px;
+  }
+
+  .intro h2 {
+    font-size:
+      clamp(32px, 9vw, 42px);
+
+    line-height: 1.2;
+  }
+
+  .intro-text {
+    font-size: 11px;
+
+    line-height: 2.3;
+  }
+
+
+  /* FILTER */
+
+  .filter-section {
+    padding: 0 5% 40px;
+  }
+
+  .filter-buttons {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 5px;
+  }
+
+  .filter-button {
+    min-width: 0;
+
+    width: 100%;
+
+    padding: 11px 5px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  /* PRODUCT */
+
+  .collection {
+    padding-bottom: 80px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .product-card {
+    width: 100%;
+  }
+
+  .product-image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .shape-tag {
+    top: 13px;
+    left: 13px;
+
+    padding: 5px 10px;
+
+    font-size: 8px;
+  }
+
+  .product-content {
+    padding: 23px 20px 25px;
+  }
+
+  .product-number {
+    font-size: 14px;
+  }
+
+  .product-name {
+    font-size: 30px;
+  }
+
+  .product-name-jp {
+    font-size: 10px;
+  }
+
+  .spec-list {
+    margin-top: 20px;
+  }
+
+  .spec-row {
+    padding: 11px 0;
+
+    font-size: 9px;
+  }
+
+  .spec-row strong {
+    font-size: 12px;
+  }
+
+  .product-price {
+    margin-top: 22px;
+  }
+
+  .product-price span {
+    font-size: 8px;
+  }
+
+  .product-price strong {
+    font-size:
+      clamp(23px, 7vw, 29px);
+  }
+
+
+  /* TOTAL */
+
+  .total-section {
+    padding: 80px 0;
+  }
+
+  .total-section h2 {
+    font-size:
+      clamp(34px, 10vw, 45px);
+  }
+
+  .total-caption {
+    font-size: 10px;
+  }
+
+  .total-price {
+    font-size:
+      clamp(43px, 13vw, 65px);
+
+    line-height: 1.2;
+  }
+
+  .total-note {
+    font-size: 9px;
+  }
+
+
+  /* ABOUT */
+
+  .about {
+    padding: 80px 0;
+  }
+
+  .about h2 {
+    font-size:
+      clamp(32px, 9vw, 44px);
+
+    line-height: 1.45;
+  }
+
+  .about-text {
+    font-size: 11px;
+
+    line-height: 2.3;
+  }
+
+
+  /* CONTACT */
+
+  .contact {
+    padding: 70px 0;
+  }
+
+  .contact h2 {
+    font-size:
+      clamp(31px, 9vw, 40px);
+
+    line-height: 1.2;
+  }
+
+  .contact p:not(.section-label) {
+    font-size: 11px;
+
+    line-height: 2.2;
+  }
+
+  .contact-button {
+    width: 80%;
+
+    max-width: 300px;
+
+    padding: 14px 20px;
+  }
+
+
+  /* FOOTER */
+
+  .site-footer {
+    padding: 35px 15px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+   480px以下
+========================================= */
+
+@media (max-width: 480px) {
+
+  .container {
+    width: 92%;
+  }
+
+  .site-header {
+    padding: 0 4%;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .logo span {
+    font-size: 6px;
+  }
+
+
+  .hero {
+    min-height: 610px;
+  }
+
+  .hero-content {
+    padding-top: 35px;
+  }
+
+  .hero-label {
+    font-size: 8px;
+
+    letter-spacing: 0.2em;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .hero h1 span {
+    font-size: 16px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .hero-text {
+    margin-top: 30px;
+
+    font-size: 10px;
+  }
+
+
+  .intro {
+    padding: 65px 0 45px;
+  }
+
+  .intro h2 {
+    font-size: 31px;
+  }
+
+
+  .filter-buttons {
+    grid-template-columns: 1fr;
+
+    gap: 6px;
+  }
+
+  .filter-button {
+    padding: 12px;
+  }
+
+
+  .product-content {
+    padding: 21px 17px 23px;
+  }
+
+  .product-name {
+    font-size: 28px;
+  }
+
+  .spec-row {
+    font-size: 8px;
+  }
+
+  .spec-row strong {
+    font-size: 11px;
+  }
+
+  .product-price strong {
+    font-size: 24px;
+  }
+
+
+  .total-price {
+    font-size: 44px;
+  }
+
+
+  .about-text {
+    text-align: left;
+  }
+
+
+  .contact-button {
+    width: 90%;
+  }
+
+}
+
+
+/* =========================================
+   TOUCH DEVICE
+========================================= */
+
+@media (hover: none) {
+
+  .product-card:hover {
+    transform: none;
+
+    box-shadow: none;
+  }
+
+  .product-card:hover
+  .product-image img {
+    transform: none;
+  }
+
+}
