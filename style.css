@@ -1493,3 +1493,84 @@ a {
   }
 
 }
+
+/* ここから */
+
+/* =========================================
+   GOOGLE TRANSLATE
+========================================= */
+
+.google-translate {
+  margin-left: 25px;
+}
+
+
+/* Google Translateの標準UIを少し整える */
+
+.google-translate .goog-te-gadget {
+  color: transparent !important;
+
+  font-size: 0;
+}
+
+
+.google-translate .goog-te-gadget select {
+  min-width: 110px;
+
+  padding: 8px 30px 8px 12px;
+
+  border: 1px solid rgba(255,255,255,0.5);
+
+  border-radius: 0;
+
+  background: #171717;
+
+  color: #ffffff;
+
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+
+.google-translate .goog-te-gadget select:hover {
+  border-color: #d7c497;
+}
+
+
+/* Google Translateの余計な表示を非表示 */
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget span {
+  display: none !important;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .google-translate {
+    margin: 30px 0 0;
+  }
+
+  .google-translate .goog-te-gadget select {
+    min-width: 140px;
+
+    padding: 12px 15px;
+
+    font-size: 12px;
+  }
+
+}
