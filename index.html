@@ -21,26 +21,7 @@
 
   <link rel="stylesheet" href="./style.css">
   
-<!-- ここから -->
-  <!-- Google Translate -->
-<script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'ja',
-        includedLanguages: 'ja,en',
-        autoDisplay: false
-      },
-      'google_translate_element'
-    );
-  }
-</script>
 
-<script
-  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-></script>
-
-<!-- ここまで -->
 </head>
 
 <body>
@@ -86,21 +67,24 @@
 </header>
 
 
-<!-- MOBILE MENU -->
-<nav class="mobile-navigation" id="mobileNavigation">
-
-  <a href="#collection">COLLECTION</a>
-  <a href="#about">ABOUT</a>
-  <a href="#contact">CONTACT</a>
-
-  <!-- ここから -->
-  <div
-  class="mobile-language-button"
-  onclick="openGoogleTranslate()"
+<nav
+  class="mobile-navigation"
+  id="mobileNavigation"
 >
-  ENGLISH
-</div>
-<!-- ここまで -->
+
+  <a href="#collection">
+    COLLECTION
+  </a>
+
+  <a href="#about">
+    ABOUT
+  </a>
+
+  <a href="#contact">
+    CONTACT
+  </a>
+
+ 
 
 </nav>
 
@@ -847,8 +831,39 @@
 
   </footer>
 
-
   <script src="./script.js"></script>
+
+  <!-- =====================================
+       GOOGLE TRANSLATE
+  ====================================== -->
+
+  <script>
+    function googleTranslateElementInit() {
+
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'ja',
+          includedLanguages: 'ja,en',
+          autoDisplay: false
+        },
+        'google_translate_element'
+      );
+
+      // new google.translate.TranslateElement(
+      //   {
+      //     pageLanguage: 'ja',
+      //     includedLanguages: 'ja,en',
+      //     autoDisplay: false
+      //   },
+      //   'google_translate_mobile'
+      // );
+
+    }
+  </script>
+
+  <script
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  ></script>
 
 </body>
 </html>

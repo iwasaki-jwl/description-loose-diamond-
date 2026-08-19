@@ -1493,84 +1493,227 @@ a {
   }
 
 }
-
-/* ここから */
-
 /* =========================================
    GOOGLE TRANSLATE
 ========================================= */
 
 .google-translate {
+  display: flex;
+
+  align-items: center;
+
   margin-left: 25px;
 }
 
 
-/* Google Translateの標準UIを少し整える */
-
+/*
+ * Google Translate本体
+ */
 .google-translate .goog-te-gadget {
   color: transparent !important;
 
-  font-size: 0;
+  font-size: 0 !important;
 }
 
 
-.google-translate .goog-te-gadget select {
+/*
+ * Google Translate セレクト
+ */
+.google-translate select.goog-te-combo {
+  display: block !important;
+
   min-width: 110px;
 
-  padding: 8px 30px 8px 12px;
+  height: 36px;
 
-  border: 1px solid rgba(255,255,255,0.5);
+  padding: 0 10px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.5);
 
   border-radius: 0;
 
-  background: #171717;
+  background: #171717 !important;
 
-  color: #ffffff;
+  color: #ffffff !important;
 
   font-family:
     "Noto Sans JP",
     sans-serif;
 
-  font-size: 11px;
+  font-size: 11px !important;
 
   letter-spacing: 0.08em;
 
   cursor: pointer;
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  appearance: auto;
 }
 
 
-.google-translate .goog-te-gadget select:hover {
-  border-color: #d7c497;
+/*
+ * ホバー
+ */
+.google-translate
+select.goog-te-combo:hover {
+
+  border-color:
+    #d7c497;
 }
 
 
-/* Google Translateの余計な表示を非表示 */
-
+/*
+ * Googleロゴ等を非表示
+ */
 .goog-logo-link {
   display: none !important;
 }
+
 
 .goog-te-gadget span {
   display: none !important;
 }
 
 
+/*
+ * Google Translate上部バー対策
+ */
+body {
+  top: 0 !important;
+}
+
+
 /* =========================================
-   MOBILE
+   MOBILE GOOGLE TRANSLATE
 ========================================= */
 
 @media (max-width: 768px) {
 
+  /*
+   * モバイルメニュー内に
+   * 移動したGoogle Translate
+   */
+  .mobile-navigation
   .google-translate {
-    margin: 30px 0 0;
+
+    display: flex !important;
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    margin-left: 0;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
   }
 
-  .google-translate .goog-te-gadget select {
-    min-width: 140px;
 
-    padding: 12px 15px;
+  /*
+   * Google Translate本体
+   */
+  .mobile-navigation
+  .google-translate
+  .goog-te-gadget {
 
-    font-size: 12px;
+    display: block !important;
+
+    width: auto;
+
+    color: transparent !important;
+
+    font-size: 0 !important;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+  }
+
+
+  /*
+   * モバイル用セレクト
+   */
+  .mobile-navigation
+  .google-translate
+  select.goog-te-combo {
+
+    display: block !important;
+
+    width: 160px;
+
+    min-width: 160px;
+
+    height: 44px;
+
+    padding: 0 15px;
+
+    border: 1px solid
+      rgba(255, 255, 255, 0.5);
+
+    border-radius: 0;
+
+    background: #171717 !important;
+
+    color: #ffffff !important;
+
+    font-family:
+      "Noto Sans JP",
+      sans-serif;
+
+    font-size: 12px !important;
+
+    letter-spacing: 0.08em;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    cursor: pointer;
+
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .mobile-navigation
+  .google-translate {
+
+    margin-top: 25px;
+
+  }
+
+
+  .mobile-navigation
+  .google-translate
+  select.goog-te-combo {
+
+    width: 150px;
+
+    min-width: 150px;
+
+    height: 42px;
+
+    font-size: 11px !important;
+
   }
 
 }
