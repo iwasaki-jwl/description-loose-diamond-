@@ -110,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
     moveGoogleTranslate
   );
 
-
   /* ========================================
      MOBILE MENU
   ======================================== */
@@ -218,8 +217,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
     );
+    /*
+ * メニューのリンク以外をクリックしたら閉じる
+ */
+ mobileNavigation.addEventListener(
+  "click",
+  function (event) {
+
+    if (event.target === mobileNavigation) {
+
+      menuToggle.classList.remove(
+        "active"
+      );
+
+      mobileNavigation.classList.remove(
+        "active"
+      );
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "メニューを開く"
+      );
+
+      document.body.style.overflow =
+        "";
+
+    }
 
   }
+ );
+}
 
 
   /* ========================================
